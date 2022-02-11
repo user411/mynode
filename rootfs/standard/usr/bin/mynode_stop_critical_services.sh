@@ -13,7 +13,7 @@ systemctl stop glances lndhub netdata rtl webssh2 whirlpool dojo
 date
 systemctl stop btcpayserver btcrpcexplorer specter caravan lnbits
 date
-systemctl stop thunderhub mempool
+systemctl stop thunderhub mempool krystalbull
 date
 
 

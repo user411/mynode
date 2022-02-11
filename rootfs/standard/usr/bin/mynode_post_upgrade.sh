@@ -1097,6 +1097,7 @@ systemctl disable poold || true
 systemctl disable loopd || true
 systemctl disable btc_rpc_explorer || true
 systemctl disable mempoolspace || true
+systemctl disable krystalbull || true
 systemctl disable hitch || true
 systemctl disable mongodb || true
 systemctl disable lnd_admin || true
@@ -1104,7 +1105,7 @@ systemctl disable lnd_unlock || true
 systemctl disable dhcpcd || true
 rm /etc/systemd/system/bitcoind.service || true
 rm /etc/systemd/system/btc_rpc_explorer.service || true
-rm /etc/systemd/system/mempoolspace.service || true
+rm /etc/systemd/system/krystalbull.service || true
 rm /etc/systemd/system/poold.service || true
 rm /etc/systemd/system/loopd.service || true
 

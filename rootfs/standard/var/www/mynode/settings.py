@@ -261,6 +261,9 @@ def page_status():
         #"mempool_status_log": get_journalctl_log("mempool"),
         "mempool_status": get_service_status_basic_text("mempool"),
         "mempool_status_color": get_service_status_color("mempool"),
+        #"krystalbull_status_log": get_journalctl_log("krystalbull"),
+        "krystalbull_status": get_service_status_basic_text("krystalbull"),
+        "krystalbull_status_color": get_service_status_color("krystalbull"),
         #"caravan_status_log": get_journalctl_log("caravan"),
         "caravan_status": get_service_status_basic_text("caravan"),
         "caravan_status_color": get_service_status_color("caravan"),
@@ -551,6 +554,16 @@ def clear_mempool_cache_page():
     t.start()
 
     flash("Mempool Cache Cleared", category="message")
+    return redirect("/settings")
+
+@mynode_settings.route("/settings/clear-krystalbull-cache")
+def clear_krystalbull_cache_page():
+    check_logged_in()
+
+    t = Timer(1.0, clear_krystalbull_cache)
+    t.start()
+
+    flash("Krystal Bull Cache Cleared", category="message")
     return redirect("/settings")
 
 @mynode_settings.route("/settings/reset-rtl-config")

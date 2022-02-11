@@ -49,6 +49,7 @@ Each myNode device comes with a number of wonderful features:
 - Thunderhub
 - BTC RPC Explorer
 - Mempool - Mempool local visualizer for the Bitcoin blockchain
+- Krystal Bull - DLC Oracle
 - LND Hub - Lightning Wallet Server
 - Lndmanage
 - Lightning Loop - A Non-Custodial Off/On Chain Bridge

@@ -311,6 +311,21 @@
             <div id="mempool_status" style='text-align: left; font-size: 12px; width: 800px; display: none;'><pre>{{mempool_status_log}}</pre></div>
             <div class="divider"></div>
 
+            <div class="settings_block_subheader">Krystal Bull Status</div>
+            <div class="settings_block_subheader_status">
+                <div class="settings_block_subheader_status_icon {{ krystalbull_status_color }}"></div>
+                {{ krystalbull_status }}
+                <span class='status_container_list'>
+                    Running Containers: 
+                    <!-- TODO : Are these image names correct? -->
+                    {% if 'krystalbull_web_1' in running_containers %} krystalbull_web_1 {% endif %}
+                    {% if 'krystalbull_api_1' in running_containers %} krystalbull_api_1 {% endif %}
+                </span>
+            </div>
+            <button id="show_krystalbull_status" onclick="showLog('krystalbull')" class="ui-button ui-widget ui-corner-all settings_button_small">Show Log</button>
+            <div id="krystalbull_status" style='text-align: left; font-size: 12px; width: 800px; display: none;'><pre>{{krystalbull_status_log}}</pre></div>
+            <div class="divider"></div>
+
             <div class="settings_block_subheader">Caravan Status</div>
             <div class="settings_block_subheader_status">
                 <div class="settings_block_subheader_status_icon {{ caravan_status_color }}"></div>

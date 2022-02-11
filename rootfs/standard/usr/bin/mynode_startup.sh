@@ -201,6 +201,7 @@ mkdir -p /mnt/hdd/mynode/ckbunker
 mkdir -p /mnt/hdd/mynode/sphinxrelay
 mkdir -p /mnt/hdd/mynode/joinmarket
 mkdir -p /mnt/hdd/mynode/mempool
+mkdir -p /mnt/hdd/mynode/krystalbull
 mkdir -p /mnt/hdd/mynode/tor_backup
 mkdir -p /tmp/flask_uploads
 echo "drive_mounted" > $MYNODE_STATUS_FILE
@@ -697,6 +698,12 @@ fi
 if [ -f $MEMPOOL_ENABLED_FILE ]; then
     if systemctl status mempool | grep "disabled;"; then
         systemctl enable mempool
+        STARTUP_MODIFIED=1
+    fi
+fi
+if [ -f $KRYSTALBULL_ENABLED_FILE ]; then
+    if systemctl status krystalbull | grep "disabled;"; then
+        systemctl enable krystalbull
         STARTUP_MODIFIED=1
     fi
 fi

@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+  web:
+    image: bitcoinscala/oracle-server-ui:${UI_VERSION} # 0.0.1-59b4b595-SNAPSHOT
+#    user: 0:0
+    restart: on-failure
+    stop_grace_period: 1m
+    volumes:
+      - /mnt/hdd/mynode/krystalbull/data/oracleserver:/home/bitcoin-s/.bitcoin-s
+      - /mnt/hdd/mynode/krystalbull/log:/log
+    environment:
+      LOG_PATH: "/log/"
+      BACKUP_PATH: "/home/bitcoin-s/.bitcoin-s/"
+      ORACLE_SERVER_API_URL: "http://oracleserver:9998/"
+#      TOR_PROXY: socks5://${TOR_PROXY_IP}:${TOR_PROXY_PORT}
+      DEFAULT_UI_PASSWORD: "password"
+      BITCOIN_S_ORACLE_RPC_PASSWORD: "password"
+    ports:
+      - 4082:3001
+#    networks:
+#      default:
+#        ipv4_address: $APP_KRYSTAL_BULL_IP
+    depends_on: 
+      - oracleserver
+  oracleserver:
+    image: bitcoinscala/bitcoin-s-oracle-server:${VERSION} # 1.8.0-172-99418c79-SNAPSHOT
+    restart: on-failure
+    stop_grace_period: 1m
+    volumes:
+      - /mnt/hdd/mynode/krystalbull/data/oracleserver:/home/bitcoin-s/.bitcoin-s
+    environment:
+#      BITCOIN_S_KEYMANAGER_ENTROPY: $APP_SEED
+      BITCOIN_S_ORACLE_RPC_PASSWORD: "password"
+#    networks:
+#      default:
+#        ipv4_address: $APP_KRYSTAL_BULL_SERVER_IP

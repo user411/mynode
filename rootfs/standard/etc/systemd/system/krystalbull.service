@@ -1,0 +1,32 @@
+# Krystalbull service
+# /etc/systemd/system/krystalbull.service
+
+[Unit]
+Description=Krystal Bull
+Wants=www.service docker_images.service
+After=www.service docker_images.service
+
+[Service]
+WorkingDirectory=/mnt/hdd/mynode/krystalbull
+EnvironmentFile=/mnt/hdd/mynode/settings/.btcrpc_environment
+ExecStartPre=/usr/bin/is_not_shutting_down.sh
+ExecStartPre=/usr/bin/wait_on_bitcoin.sh
+ExecStartPre=/usr/bin/wait_on_docker_image_install.sh
+ExecStartPre=/usr/bin/mynode_pre_krystalbull.sh
+ExecStart=/usr/local/bin/docker-compose up
+ExecStartPost=/usr/bin/mynode_post_krystalbull.sh
+
+ExecStop=/usr/local/bin/docker-compose down
+
+User=root
+Group=root
+Type=simple
+TimeoutSec=120
+Restart=always
+RestartSec=30
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=krystalbull
+
+[Install]
+WantedBy=multi-user.target

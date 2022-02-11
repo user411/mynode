@@ -276,6 +276,16 @@
         "homepage_order": 43
     },
     {
+        "name": "Krystal Bull",
+        "short_name": "krystalbull",
+        "app_tile_default_status_text": "DLC Oracle",
+        "can_uninstall": true,
+        "show_on_homepage": true,
+        "supports_testnet": true,
+        "requires_docker_image_installation": true,
+        "homepage_order": 44
+    },
+    {
         "name": "Web SSH",
         "short_name": "webssh2"
     },

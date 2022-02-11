@@ -11,6 +11,7 @@ apps = [{"name": "bitcoin/bitcoin",                         "current_version_var
         {"name": "lightninglabs/lightning-terminal",        "current_version_variable": "LIT_VERSION"},
         {"name": "romanz/electrs",                          "current_version_variable": "ELECTRS_VERSION"},
         {"name": "mempool/mempool",                         "current_version_variable": "MEMPOOL_VERSION"},
+        {"name": "krystalbull/krystalbull",                 "current_version_variable": "KRYSTALBULL_VERSION"},
         {"name": "Ride-The-Lightning/RTL",                  "current_version_variable": "RTL_VERSION"},
         {"name": "janoside/btc-rpc-explorer",               "current_version_variable": "BTCRPCEXPLORER_VERSION"},
         {"name": "BlueWallet/LndHub",                       "current_version_variable": "LNDHUB_VERSION"},

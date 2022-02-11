@@ -56,6 +56,9 @@ if [ "$#" -ge 2 ]; then
     elif [ "$2" = "mempool" ]; then
         echo "Restarting mempool service..."
         systemctl restart mempool &
+    elif [ "$2" = "krystalbull" ]; then
+        echo "Restarting krystalbull service..."
+        systemctl restart krystalbull &
     elif [ "$2" = "files" ]; then
         echo "Only updating files... Done."
     elif [ "$2" = "reboot" ]; then

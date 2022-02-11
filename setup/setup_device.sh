@@ -893,6 +893,7 @@ fi
 
 # Mark docker images for install (on SD so install occurs after drive attach)
 touch /home/bitcoin/.mynode/install_mempool
+touch /home/bitcoin/.mynode/install_krystalbull
 touch /home/bitcoin/.mynode/install_btcpayserver
 touch /home/bitcoin/.mynode/install_dojo
 

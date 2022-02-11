@@ -824,6 +824,7 @@ def reset_docker():
     # Reset marker files
     os.system("rm -f /mnt/hdd/mynode/settings/webssh2_version")
     os.system("rm -f /mnt/hdd/mynode/settings/mempool_version")
+    os.system("rm -f /mnt/hdd/mynode/settings/krystalbull_version")
     os.system("rm -f /mnt/hdd/mynode/settings/dojo_version")
 
     # Delete Dojo files
@@ -986,6 +987,15 @@ def clear_mempool_cache():
     os.system("rm -rf /mnt/hdd/mynode/mempool/mysql/data/*")
     os.system("sync")
     os.system("systemctl restart mempool")
+
+#==================================
+# Krystal Bull Functions
+#==================================
+def clear_krystalbull_cache():
+    os.system("rm -rf /mnt/hdd/mynode/krystalbull/data/*")
+    os.system("rm -rf /mnt/hdd/mynode/krystalbull/log/*")
+    os.system("sync")
+    os.system("systemctl restart krystalbull")
 
 #==================================
 # Specter Functions

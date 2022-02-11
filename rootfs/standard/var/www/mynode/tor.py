@@ -63,6 +63,7 @@ def page_tor():
     v3_services.append(create_v3_service("Caravan", general_onion_url, "3020", True, ""))
     v3_services.append(create_v3_service("Thunderhub", general_onion_url, "3030 / 3031", True, ""))
     v3_services.append(create_v3_service("Mempool", general_onion_url, "4080 / 4081", True, ""))
+    v3_services.append(create_v3_service("Krystal Bull", general_onion_url, "4082 / 4083", True, ""))
     v3_services.append(create_v3_service("LNbits", lnbits_onion_url, "80 / 443", True, ""))
     v3_services.append(create_v3_service("Lightning Terminal", general_onion_url, "8443", True, ""))
     v3_services.append(create_v3_service("Whirlpool", general_onion_url, "8899", False, ""))

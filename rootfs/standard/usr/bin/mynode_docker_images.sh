@@ -41,6 +41,7 @@ while true; do
         echo "reset" > $WEBSSH2_VERSION_FILE
         echo "reset" > $NETDATA_VERSION_FILE
         echo "reset" > $MEMPOOL_VERSION_FILE
+        echo "reset" > $KRYSTALBULL_VERSION_FILE
         echo "reset" > $DOJO_VERSION_FILE
     fi
     echo $CURRENT_ARCH > $DEVICE_ARCHITECTURE_FILE
@@ -123,6 +124,46 @@ while true; do
             fi
 
             echo $MEMPOOL_VERSION > $MEMPOOL_VERSION_FILE
+        fi
+    fi
+    touch /tmp/need_application_refresh
+
+
+    # Upgrade krystalbull
+    #KRYSTALBULL_UPGRADE_URL=https://github.com/krystalbull/krystalbull/archive/${KRYSTALBULL_VERSION}.tar.gz
+    echo "Checking for new krystalbull..."
+    if should_install_app "krystalbull" ; then
+        CURRENT=""
+        if [ -f $KRYSTALBULL_VERSION_FILE ]; then
+            CURRENT=$(cat $KRYSTALBULL_VERSION_FILE)
+        fi
+        if [ "$CURRENT" != "$KRYSTALBULL_VERSION" ]; then
+            # TODO : Fix grep
+            docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep 'krystalbull') || true # Remove images
+
+            cd /mnt/hdd/mynode/krystalbull
+            rm -rf data
+            rm -rf log
+            mkdir -p data log
+
+            # Anything to download?
+#            rm -rf /opt/download/krystalbull
+#            mkdir -p /opt/download/krystalbull
+#            cd /opt/download/krystalbull
+#            wget $KRYSTALBULL_UPGRADE_URL -O krystalbull.tar.gz
+#            tar -xvf krystalbull.tar.gz
+#            rm krystalbull.tar.gz
+#            mv krystalbull-* krystalbull
+
+            docker pull bitcoinscala/oracle-server-ui:${KRYSTALBULL_UI_VERSION}
+            docker pull bitcoinscala/bitcoin-s-oracle-server:${KRYSTALBULL_VERSION}
+
+            enabled=$(systemctl is-enabled krystalbull)
+            if [ "$enabled" = "enabled" ]; then
+                systemctl restart krystalbull &
+            fi
+
+            echo $KRYSTALBULL_VERSION > $KRYSTALBULL_VERSION_FILE
         fi
     fi
     touch /tmp/need_application_refresh

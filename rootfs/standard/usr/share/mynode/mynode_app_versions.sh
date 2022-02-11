@@ -36,6 +36,11 @@ MEMPOOL_VERSION="v2.3.1"
 MEMPOOL_VERSION_FILE=/mnt/hdd/mynode/settings/mempool_version
 MEMPOOL_LATEST_VERSION_FILE=/mnt/hdd/mynode/settings/mempool_version_latest
 
+KRYSTALBULL_VERSION="1.8.0-172-99418c79-SNAPSHOT"
+KRYSTALBULL_UI_VERSION="0.0.1-59b4b595-SNAPSHOT"
+KRYSTALBULL_VERSION_FILE=/mnt/hdd/mynode/settings/krystalbull_version
+KRYSTALBULL_LATEST_VERSION_FILE=/mnt/hdd/mynode/settings/krystalbull_version_latest
+
 LNDHUB_VERSION="v1.4.1"
 LNDHUB_VERSION_FILE=/home/bitcoin/.mynode/lndhub_version
 LNDHUB_LATEST_VERSION_FILE=/home/bitcoin/.mynode/lndhub_version_latest

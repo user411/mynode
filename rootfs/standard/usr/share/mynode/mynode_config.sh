@@ -97,6 +97,7 @@ LNDHUB_ENABLED_FILE="/mnt/hdd/mynode/.mynode_lndhub_enabled"
 BTCRPCEXPLORER_ENABLED_FILE="/mnt/hdd/mynode/.mynode_btcrpceplorer_enabled"
 VPN_ENABLED_FILE="/mnt/hdd/mynode/.mynode_vpn_enabled"
 MEMPOOL_ENABLED_FILE="/mnt/hdd/mynode/.mynode_mempoolspace_enabled"
+KRYSTALBULL_ENABLED_FILE="/mnt/hdd/mynode/.mynode_krystalbull_enabled"
 BTCPAYSERVER_ENABLED_FILE="/mnt/hdd/mynode/.mynode_btcpayserver_enabled"
 
 BITCOIN_SYNCED_FILE="/mnt/hdd/mynode/.mynode_bitcoin_synced"
